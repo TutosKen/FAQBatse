@@ -1,0 +1,9 @@
+.preg {
+    padding: 50;
+    background-color: gray;
+}
+
+.respuesta {
+    background-color: dimgray;
+    display: none;
+}
