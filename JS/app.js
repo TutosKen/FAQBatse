@@ -16,11 +16,10 @@ $(document).ready(function() {
         });
     });
 
-    $(".preg").on('click', function(e) {
-        var target = $(e.target).closest(".preg");
-        target.find(".respuesta").slideDown();
-    });
-
+    $(document).on('click', '.preg', function() {
+        var padre = $(this);
+        padre.find('.respuesta').slideToggle();
+    })
 
 
 

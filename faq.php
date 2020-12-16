@@ -10,7 +10,7 @@
 <input id="busqueda" type="text">
     
 
-    <div id="seccionPreguntas" class="preg">
+    <div id="seccionPreguntas">
         
     </div>
 
