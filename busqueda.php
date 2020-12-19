@@ -43,7 +43,13 @@ class Busqueda{
             }
 
             if ($encontrado) {
-                $datosLocal = "<h3 class='".$icono."'>".explode('.',$nombre,2)[0]."</h3>" . $datosLocal;
+
+                if ($rep == 0) {
+                    $nombre = "Aplicación de pasajero";
+                }else{
+                    $nombre = "Aplicación de conductor";
+                }
+                $datosLocal = "<h3 class='".$icono."'> ".explode('.',$nombre,2)[0]."</h3>" . $datosLocal;    
                 $this->datos .= $datosLocal;
             }
 
@@ -65,7 +71,7 @@ class Busqueda{
     function CargarPreguntasCliente(){
         $this->spreadsheet = $this->reader->load('./Excel/Cliente.xlsx');
         $this->worksheet = $this->spreadsheet->getActiveSheet();
-        echo "<h3 class='fas fa-user-alt'>Cliente</h3>";
+        echo "<h3 class='fas fa-user-alt text-left'> Aplicación de pasajero</h3>";
         foreach ($this->worksheet->getRowIterator() as $row) {
             echo "<div class='preg'>".$this->worksheet->getCell("A$this->nb")->getValue();
             echo "<div class='respuesta'><div class='alert alert-dark'>".$this->worksheet->getCell("B$this->nb")->getValue()."</div></div>";
@@ -78,7 +84,8 @@ function CargarPreguntasConductor(){
     $this->spreadsheet = $this->reader->load('./Excel/Conductor.xlsx');
     $this->worksheet = $this->spreadsheet->getActiveSheet();
     $this->nb = 2;
-    echo "<h3 class='fas fa-taxi'>Conductor</h3>";
+    echo "<br>";
+    echo "<h3 class='fas fa-taxi'> Aplicación de conductor</h3>";
     foreach ($this->worksheet->getRowIterator() as $row) {
         echo "<div class='preg'>".$this->worksheet->getCell("A$this->nb")->getValue();
         echo "<div class='respuesta'><div class='alert alert-dark'>".$this->worksheet->getCell("B$this->nb")->getValue()."</div></div>";
